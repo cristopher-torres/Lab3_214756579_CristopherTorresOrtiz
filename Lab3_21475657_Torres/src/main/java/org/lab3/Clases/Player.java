@@ -1,0 +1,49 @@
+package org.lab3.Clases;
+
+public class Player {
+    public int id;
+    public String name;
+    public String color;
+    public int wins;
+    public int losses;
+    public int draws;
+    public int remainingPieces;
+
+    public Player(int id, String name, String color, int wins, int losses, int draws, int remainingPieces) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+        this.wins = wins;
+        this.losses = losses;
+        this.draws = draws;
+        this.remainingPieces = remainingPieces;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public int getRemainingPieces() {
+        return remainingPieces;
+    }
+}
