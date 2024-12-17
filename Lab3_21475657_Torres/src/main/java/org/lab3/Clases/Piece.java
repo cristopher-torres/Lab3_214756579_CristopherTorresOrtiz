@@ -1,6 +1,8 @@
 package org.lab3.Clases;
 
-public class Piece {
+import org.lab3.Interfaces.PieceInterface;
+
+public class Piece implements PieceInterface {
     public String color;
 
     public Piece(String color) {

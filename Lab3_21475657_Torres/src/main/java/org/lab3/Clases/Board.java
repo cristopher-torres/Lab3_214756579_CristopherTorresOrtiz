@@ -1,8 +1,10 @@
 package org.lab3.Clases;
+import org.lab3.Interfaces.BoardInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
+public class Board implements BoardInterface {
     private List<List<Character>> board;
     private int filas = 6;
     private int columnas = 7;

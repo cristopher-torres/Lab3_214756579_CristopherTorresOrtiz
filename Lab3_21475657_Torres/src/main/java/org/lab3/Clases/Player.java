@@ -1,6 +1,8 @@
 package org.lab3.Clases;
 
-public class Player {
+import org.lab3.Interfaces.PlayerInterface;
+
+public class Player implements PlayerInterface {
     public int id;
     public String name;
     public String color;
