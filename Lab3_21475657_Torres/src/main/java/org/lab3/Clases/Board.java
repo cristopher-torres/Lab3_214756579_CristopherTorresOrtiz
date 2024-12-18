@@ -20,4 +20,13 @@ public class Board implements BoardInterface {
             board.add(row);
         }
     }
+    public boolean CanPlay(){
+        for (int i = 0; i <= filas; i++) {
+            //se verifica solo en la primera fila si hay algun '_' , ya que el tablera se llena de abajo hacia arriba
+            if (board.get(0).get(i) == '_') {
+                return true; //si encuentra uno se puede jugar
+            }
+        }
+        return false; // si no retorna false porque no se puede jugar
+    }
 }
