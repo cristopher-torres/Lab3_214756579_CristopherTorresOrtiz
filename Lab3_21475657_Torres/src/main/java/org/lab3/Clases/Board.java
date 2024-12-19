@@ -29,4 +29,26 @@ public class Board implements BoardInterface {
         }
         return false; // si no retorna false porque no se puede jugar
     }
+    public int CheckVerticalWinner(){
+        for (int col = 0; col < columnas; col++) {
+            int accX = 0;
+            int accO = 0;
+            for (int row = 0; row < filas; row++) {
+                if (board.get(row).get(col) == 'X') {
+                    accX = accX + 1;
+                    accO = 0;
+                    if (accX == 4) {
+                        return 1;
+                    }
+                } else if (board.get(row).get(col) == 'O') {
+                    accO = accO + 1;
+                    accX = 0;
+                    if (accO == 4){
+                        return 2;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }
