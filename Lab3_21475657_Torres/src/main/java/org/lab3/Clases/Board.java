@@ -20,14 +20,34 @@ public class Board implements BoardInterface {
             board.add(row);
         }
     }
-    public boolean CanPlay(){
-        for (int i = 0; i <= filas; i++) {
+    public boolean canPlay(){
+        for (int i = 0; i < columnas; i++) {
             //se verifica solo en la primera fila si hay algun '_' , ya que el tablera se llena de abajo hacia arriba
             if (board.get(0).get(i) == '_') {
                 return true; //si encuentra uno se puede jugar
             }
         }
         return false; // si no retorna false porque no se puede jugar
+    }
+    public void playPiece(int column, Piece piece){
+        int newColumn = column - 1;
+        if(column > 7 || column <= 0){
+            System.out.println("Error: Columna fuera de rango");
+            return;
+        }
+        for(int i = 5; i >= 0; i--){
+            if(board.get(i).get(newColumn) == '_'){
+                if(piece.getColor().equals("red")){
+                    board.get(i).set(newColumn, 'X');
+                    return;
+                } else if (piece.getColor().equals("yellow")) {
+                    board.get(i).set(newColumn, 'O');
+                    return;
+                }
+            }
+
+        }
+
     }
     public int CheckVerticalWinner(){
         for (int col = 0; col < columnas; col++) {
