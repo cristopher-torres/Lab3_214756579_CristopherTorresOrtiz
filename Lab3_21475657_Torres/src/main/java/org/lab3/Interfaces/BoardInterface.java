@@ -6,5 +6,6 @@ import org.lab3.Clases.Piece;
 public interface BoardInterface {
     public boolean canPlay();
     public void playPiece(int column, Piece piece);
-    public int CheckVerticalWinner();
+    public int checkVerticalWinner();
+    public int checkHorizontalWinner();
 }

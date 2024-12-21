@@ -47,7 +47,7 @@ public class Board implements BoardInterface {
             }
         }
     }
-    public int CheckVerticalWinner(){
+    public int checkVerticalWinner(){
         for (int col = 0; col < columnas; col++) {
             int accR = 0;
             int accY = 0;
@@ -62,6 +62,29 @@ public class Board implements BoardInterface {
                     accY = accY + 1;
                     accR = 0;
                     if (accY == 4){
+                        return 2;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
+    public int checkHorizontalWinner() {
+        for (int row = 0; row < filas; row++) {
+            int accR = 0;
+            int accY = 0;
+            for (int col = 0; col < columnas; col++) {
+                if (board.get(row).get(col) == 'R') {
+                    accR = accR + 1;
+                    accY = 0;
+                    if (accR == 4) {
+                        return 1;
+                    }
+                } else if (board.get(row).get(col) == 'A') {
+                    accY = accY + 1;
+                    accR = 0;
+                    if (accY == 4) {
                         return 2;
                     }
                 }
