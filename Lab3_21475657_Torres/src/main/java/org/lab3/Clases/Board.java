@@ -126,4 +126,12 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+    public int whoIsWinner(){
+        if (checkDiagonalWinner() == 1 || checkHorizontalWinner() == 1 || checkVerticalWinner() == 1) {
+            return 1;
+        } else if (checkDiagonalWinner() == 2 || checkVerticalWinner() == 2 || checkHorizontalWinner() == 2) {
+            return 2;
+        }
+        return 0;
+    }
 }

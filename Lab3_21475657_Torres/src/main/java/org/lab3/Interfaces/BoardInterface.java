@@ -9,4 +9,5 @@ public interface BoardInterface {
     public int checkVerticalWinner();
     public int checkHorizontalWinner();
     public int checkDiagonalWinner();
+    public int whoIsWinner();
 }
