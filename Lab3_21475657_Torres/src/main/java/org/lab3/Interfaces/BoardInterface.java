@@ -8,4 +8,5 @@ public interface BoardInterface {
     public void playPiece(int column, Piece piece);
     public int checkVerticalWinner();
     public int checkHorizontalWinner();
+    public int checkDiagonalWinner();
 }

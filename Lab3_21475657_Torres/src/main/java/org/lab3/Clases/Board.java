@@ -92,4 +92,38 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+
+    public int checkDiagonalWinner() {
+        for (int row = 0; row < filas; row++) {
+            for (int col = 0; col < columnas; col++) {
+                //Se revisa diagonales ascendentes
+                if (row >= 3 && col <= 3) {  //se define esta condicion para que no se salga de la board
+                    if (board.get(row).get(col) == 'R' && board.get(row - 1).get(col + 1) == 'R' &&
+                            board.get(row - 2).get(col + 2) == 'R' &&
+                            board.get(row - 3).get(col + 3) == 'R') {
+                        return 1;
+                    }
+                    if (board.get(row).get(col) == 'A' && board.get(row - 1).get(col + 1) == 'A' &&
+                            board.get(row - 2).get(col + 2) == 'A' &&
+                            board.get(row - 3).get(col + 3) == 'A') {
+                        return 2;
+                    }
+                }
+                //Se revisan diagonales descendentes
+                if (row <= 2 && col <= 3) {  //se define estas condiciones para que no se salga de la board
+                    if (board.get(row).get(col) == 'R' && board.get(row + 1).get(col + 1) == 'R' &&
+                            board.get(row + 2).get(col + 2) == 'R' &&
+                            board.get(row + 3).get(col + 3) == 'R') {
+                        return 1;
+                    }
+                    if (board.get(row).get(col) == 'A' && board.get(row + 1).get(col + 1) == 'A' &&
+                            board.get(row + 2).get(col + 2) == 'A' &&
+                            board.get(row + 3).get(col + 3) == 'A') {
+                        return 2;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }
