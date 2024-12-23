@@ -48,4 +48,19 @@ public class Player implements PlayerInterface {
     public int getRemainingPieces() {
         return remainingPieces;
     }
+
+    public Player updatedStats(String result) {
+        if (result.equals("Win")){
+            wins += 1;
+            return new Player(id, name, color, wins, losses, draws, remainingPieces);
+        }else if (result.equals("Loss")){
+            losses += 1;
+            return new Player(id, name, color, wins, losses, draws, remainingPieces);
+        } else if (result.equals("Draw")){
+            draws += 1;
+            return new Player(id, name, color, wins, losses, draws, remainingPieces);
+        }else{
+            return new Player(id, name, color, wins, losses, draws, remainingPieces);
+        }
+    }
 }

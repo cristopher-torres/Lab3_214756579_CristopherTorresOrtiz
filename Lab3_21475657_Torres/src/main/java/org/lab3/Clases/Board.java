@@ -134,15 +134,4 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
-
-    public void printBoard() {
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                System.out.print(board.get(i).get(j) + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("0 1 2 3 4 5 6");  // Números de columna para referencia
-        System.out.println();
-    }
 }

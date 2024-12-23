@@ -35,4 +35,12 @@ public class Game implements GameInterface {
     public Player getPlayer2() {
         return players.get(1);
     }
+    public Player getCurrentPlayer() {
+        int currentPlayer = currentTurn % 2;
+        if (currentPlayer == 0){
+            return players.get(1);
+        }else{
+            return players.get(0);
+        }
+    }
 }
