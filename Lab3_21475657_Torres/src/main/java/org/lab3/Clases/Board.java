@@ -20,6 +20,7 @@ public class Board implements BoardInterface {
             board.add(row);
         }
     }
+    @Override
     public boolean canPlay(){
         for (int i = 0; i < columnas; i++) {
             //se verifica solo en la primera fila si hay algun '_' , ya que el tablera se llena de abajo hacia arriba
@@ -29,6 +30,7 @@ public class Board implements BoardInterface {
         }
         return false; // si no retorna false porque no se puede jugar
     }
+    @Override
     public void playPiece(int column, Piece piece){
         int newColumn = column - 1;
         if(column > 7 || column < 1){
@@ -46,8 +48,9 @@ public class Board implements BoardInterface {
                 }
             }
         }
-        System.out.println("Columna llena");
+        throw new IllegalStateException("La columna está llena.");
     }
+    @Override
     public int checkVerticalWinner(){
         for (int col = 0; col < columnas; col++) {
             int accR = 0;
@@ -70,7 +73,7 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
-
+    @Override
     public int checkHorizontalWinner() {
         for (int row = 0; row < filas; row++) {
             int accR = 0;
@@ -93,7 +96,7 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
-
+    @Override
     public int checkDiagonalWinner() {
         for (int row = 0; row < filas; row++) {
             for (int col = 0; col < columnas; col++) {
@@ -127,6 +130,7 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+    @Override
     public int whoIsWinner(){
         if (checkDiagonalWinner() == 1 || checkHorizontalWinner() == 1 || checkVerticalWinner() == 1) {
             return 1;

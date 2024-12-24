@@ -10,12 +10,22 @@ public class Game implements GameInterface {
     private List<Player> players;
     private Board board;
     private int currentTurn;
+    private List<String> history;
 
     public Game(List<Player> players, Board board, int currentTurn) {
         this.players = players;
         this.board = board;
         this.currentTurn = currentTurn;
+        this.history = new ArrayList<>();
     }
+
+    @Override
+    public void gameHistory(int column, String color){
+        String newMove = "("+column+","+color+")";
+        history.add(newMove);
+    }
+    
+    @Override
     public boolean isDraw(){
         Player player1 = getPlayer1();
         Player player2 = getPlayer2();
@@ -37,6 +47,8 @@ public class Game implements GameInterface {
     public Player getPlayer2() {
         return players.get(1);
     }
+
+    @Override
     public Player getCurrentPlayer() {
         int currentPlayer = currentTurn % 2;
         if (currentPlayer == 1){
@@ -50,10 +62,12 @@ public class Game implements GameInterface {
         return board;
     }
 
+    @Override
     public void boardGetState() {
         Board currentBoard = getBoard();
         currentBoard.mostrarBoard();
     }
+    @Override
     public void gameEnd(){
         Player player1 = getPlayer1();
         Player player2 = getPlayer2();
@@ -71,6 +85,11 @@ public class Game implements GameInterface {
         }
         players.set(0, player1);
         players.set(1, player2);
+    }
+
+
+    public List<String> getHistory() {
+        return history;
     }
 
     public void setCurrentTurn(int currentTurn) {
