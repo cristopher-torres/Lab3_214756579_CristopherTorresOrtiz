@@ -9,4 +9,5 @@ public interface GameInterface {
     public Player getCurrentPlayer();
     public void boardGetState();
     public void gameEnd();
+    public void gamePlayerSetMove(Player player,int column);
 }

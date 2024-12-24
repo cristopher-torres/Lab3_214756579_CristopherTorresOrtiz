@@ -18,13 +18,11 @@ public class Game implements GameInterface {
         this.currentTurn = currentTurn;
         this.history = new ArrayList<>();
     }
-
     @Override
     public void gameHistory(int column, String color){
         String newMove = "("+column+","+color+")";
         history.add(newMove);
     }
-    
     @Override
     public boolean isDraw(){
         Player player1 = getPlayer1();
@@ -87,6 +85,27 @@ public class Game implements GameInterface {
         players.set(1, player2);
     }
 
+    @Override
+    public void gamePlayerSetMove(Player player,int column){
+        if (player.getId() != getCurrentPlayer().getId()){
+            System.out.println("No es tu turno");
+        }
+        if (player.getRemainingPieces() > 0) {
+            Piece piece = new Piece(player.getColor());
+            getBoard().playPiece(column, piece);
+            int newRemainingPieces = player.getRemainingPieces() - 1;
+            player.setRemainingPieces(newRemainingPieces);
+            gameHistory(column, player.getColor());
+            int newCurrentTurn = currentTurn + 1;
+            setCurrentTurn(newCurrentTurn);
+            if (getBoard().whoIsWinner() != 0 || isDraw()) {
+                gameEnd();
+            }
+        }else{
+            System.out.println("El jugador no tiene fichas disponibles");
+        }
+
+    }
 
     public List<String> getHistory() {
         return history;

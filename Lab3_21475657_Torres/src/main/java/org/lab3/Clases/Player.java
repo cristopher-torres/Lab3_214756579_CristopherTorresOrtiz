@@ -49,6 +49,7 @@ public class Player implements PlayerInterface {
         return remainingPieces;
     }
 
+    @Override
     public Player updatedStats(String result) {
         if (result.equals("Win")){
             wins += 1;
