@@ -46,6 +46,7 @@ public class Board implements BoardInterface {
                 }
             }
         }
+        System.out.println("Columna llena");
     }
     public int checkVerticalWinner(){
         for (int col = 0; col < columnas; col++) {
@@ -134,4 +135,15 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+
+    public void mostrarBoard() {
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                System.out.print(board.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 }

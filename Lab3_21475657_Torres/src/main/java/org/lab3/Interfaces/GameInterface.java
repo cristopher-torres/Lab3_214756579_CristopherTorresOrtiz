@@ -6,4 +6,6 @@ import org.lab3.Clases.Player;
 public interface GameInterface {
     public boolean isDraw();
     public Player getCurrentPlayer();
+    public void boardGetState();
+    public void gameEnd();
 }

@@ -22,3 +22,9 @@ test {
 application {
     mainClass = 'org.lab3.Main'
 }
+run {
+    standardInput = System.in
+}
+
+
+

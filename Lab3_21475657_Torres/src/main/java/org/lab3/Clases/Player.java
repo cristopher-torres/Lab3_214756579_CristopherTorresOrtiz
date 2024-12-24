@@ -63,4 +63,8 @@ public class Player implements PlayerInterface {
             return new Player(id, name, color, wins, losses, draws, remainingPieces);
         }
     }
+
+    public void setRemainingPieces(int remainingPieces) {
+        this.remainingPieces = remainingPieces;
+    }
 }
