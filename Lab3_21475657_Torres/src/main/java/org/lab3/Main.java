@@ -1,7 +1,5 @@
 package org.lab3;
 
-import org.lab3.MainMenu;
-
 /**
  * Clase main para ejecutar el programa.
  *
@@ -13,7 +11,7 @@ public class Main {
      * @param args: los argumentos de la linea de comando
      */
     public static void main(String[] args) {
-        MainMenu Menu = new MainMenu();
+        Menu_21475657_TorresOrtiz Menu = new Menu_21475657_TorresOrtiz();
         Menu.menuPrincipal();
     }
 }

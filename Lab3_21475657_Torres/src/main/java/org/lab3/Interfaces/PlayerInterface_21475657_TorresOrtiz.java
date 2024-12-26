@@ -1,10 +1,10 @@
 package org.lab3.Interfaces;
-import org.lab3.Clases.Player;
+import org.lab3.Clases.Player_21475657_TorresOrtiz;
 
 /**
  * Interfaz donde se mencionan los metodos a utilizar por la clase Player.
  */
-public interface PlayerInterface {
+public interface PlayerInterface_21475657_TorresOrtiz {
     /**
      * Retorna el Id del jugador.
      *
@@ -59,5 +59,5 @@ public interface PlayerInterface {
      * @param result:String
      * @return Player.
      */
-    public Player updatedStats(String result);
+    public Player_21475657_TorresOrtiz updatedStats(String result);
 }

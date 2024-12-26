@@ -1,6 +1,6 @@
 package org.lab3.Clases;
 
-import org.lab3.Interfaces.GameInterface;
+import org.lab3.Interfaces.GameInterface_21475657_TorresOrtiz;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +11,15 @@ import java.util.List;
  *
  * @author Cristopher Torres
  */
-public class Game implements GameInterface {
+public class Game_21475657_TorresOrtiz implements GameInterface_21475657_TorresOrtiz {
     /**
      * Atributo: players : Lista de jugadores
      */
-    private List<Player> players;
+    private List<Player_21475657_TorresOrtiz> players;
     /**
      * Atributo: board : Board.
      */
-    private Board board;
+    private Board_21475657_TorresOrtiz board;
     /**
      * Atributo: currentTurn : int.
      */
@@ -36,11 +36,69 @@ public class Game implements GameInterface {
      * @param board:Board
      * @param currentTurn:int
      */
-    public Game(List<Player> players, Board board, int currentTurn) {
+    public Game_21475657_TorresOrtiz(List<Player_21475657_TorresOrtiz> players, Board_21475657_TorresOrtiz board, int currentTurn) {
         this.players = players;
         this.board = board;
         this.currentTurn = currentTurn;
         this.history = new ArrayList<>();
+    }
+
+    /**
+     * Retorna la lista history.
+     *
+     * @return history: Una lista de string con pares (int column, string color).
+     */
+    @Override
+    public List<String> getHistory() {
+        return history;
+    }
+
+    /**
+     * Retorna currentTurn.
+     * @return currentTurn:int.
+     */
+    @Override
+    public int getCurrentTurn() {
+        return currentTurn;
+    }
+
+    /**
+     * Retorna al Player 1.
+     *
+     * @return Player.
+     */
+    @Override
+    public Player_21475657_TorresOrtiz getPlayer1() {
+        return players.get(0);
+    }
+
+    /**
+     * Retorna al player 2.
+     *
+     * @return Player.
+     */
+    @Override
+    public Player_21475657_TorresOrtiz getPlayer2() {
+        return players.get(1);
+    }
+
+    /**
+     * Retorna el objeto Board
+     *
+     * @return board
+     */
+    public Board_21475657_TorresOrtiz getBoard() {
+        return board;
+    }
+
+    /**
+     * Cambia el currentTurn del game.
+     *
+     * @param currentTurn:int
+     */
+    @Override
+    public void setCurrentTurn(int currentTurn) {
+        this.currentTurn = currentTurn;
     }
 
     /**
@@ -63,8 +121,8 @@ public class Game implements GameInterface {
      */
     @Override
     public boolean isDraw(){
-        Player player1 = getPlayer1();
-        Player player2 = getPlayer2();
+        Player_21475657_TorresOrtiz player1 = getPlayer1();
+        Player_21475657_TorresOrtiz player2 = getPlayer2();
         int remainingPieces1 = player1.getRemainingPieces();
         int remainingPieces2 = player2.getRemainingPieces();
 
@@ -77,32 +135,12 @@ public class Game implements GameInterface {
     }
 
     /**
-     * Retorna al Player 1.
-     *
-     * @return Player.
-     */
-    @Override
-    public Player getPlayer1() {
-        return players.get(0);
-    }
-
-    /**
-     * Retorna al player 2.
-     *
-     * @return Player.
-     */
-    @Override
-    public Player getPlayer2() {
-        return players.get(1);
-    }
-
-    /**
      * Metodo que obtiene el jugador cuyo turno esta en curso.
      *
      * @return Player
      */
     @Override
-    public Player getCurrentPlayer() {
+    public Player_21475657_TorresOrtiz getCurrentPlayer() {
         int currentPlayer = currentTurn % 2;
         if (currentPlayer == 1){
             return getPlayer1();
@@ -112,20 +150,11 @@ public class Game implements GameInterface {
     }
 
     /**
-     * Retorna el objeto Board
-     *
-     * @return board
-     */
-    public Board getBoard() {
-        return board;
-    }
-
-    /**
      * Metodo que entrega por pantalla el estado actual del tablero en el juego.
      */
     @Override
     public void boardGetState() {
-        Board currentBoard = getBoard();
+        Board_21475657_TorresOrtiz currentBoard = getBoard();
         currentBoard.mostrarBoard();
     }
 
@@ -135,9 +164,9 @@ public class Game implements GameInterface {
      */
     @Override
     public void gameEnd(){
-        Player player1 = getPlayer1();
-        Player player2 = getPlayer2();
-        Board currentBoard = getBoard();
+        Player_21475657_TorresOrtiz player1 = getPlayer1();
+        Player_21475657_TorresOrtiz player2 = getPlayer2();
+        Board_21475657_TorresOrtiz currentBoard = getBoard();
 
         if(currentBoard.whoIsWinner() == 1){
             player1 = player1.updatedStats("Win");
@@ -160,12 +189,12 @@ public class Game implements GameInterface {
      * @param column:int
      */
     @Override
-    public void gamePlayerSetMove(Player player,int column){
+    public void gamePlayerSetMove(Player_21475657_TorresOrtiz player, int column){
         if (player.getId() != getCurrentPlayer().getId()){
             System.out.println("No es tu turno");
         }
         if (player.getRemainingPieces() > 0) {
-            Piece piece = new Piece(player.getColor());
+            Piece_21475657_TorresOrtiz piece = new Piece_21475657_TorresOrtiz(player.getColor());
             getBoard().playPiece(column, piece);
             int newRemainingPieces = player.getRemainingPieces() - 1;
             player.setRemainingPieces(newRemainingPieces);
@@ -179,34 +208,5 @@ public class Game implements GameInterface {
             System.out.println("El jugador no tiene fichas disponibles");
         }
 
-    }
-
-    /**
-     * Retorna la lista history.
-     *
-     * @return history: Una lista de string con pares (int column, string color).
-     */
-    @Override
-    public List<String> getHistory() {
-        return history;
-    }
-
-    /**
-     * Cambia el currentTurn del game.
-     *
-     * @param currentTurn:int
-     */
-    @Override
-    public void setCurrentTurn(int currentTurn) {
-        this.currentTurn = currentTurn;
-    }
-
-    /**
-     * Retorna currentTurn.
-     * @return currentTurn:int.
-     */
-    @Override
-    public int getCurrentTurn() {
-        return currentTurn;
     }
 }

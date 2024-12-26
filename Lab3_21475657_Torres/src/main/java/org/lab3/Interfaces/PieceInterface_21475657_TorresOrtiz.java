@@ -1,11 +1,9 @@
 package org.lab3.Interfaces;
 
-import org.lab3.Clases.Piece;
-
 /**
  * Interfaz donde se mencionan los metodos a utilizar por la clase Piece.
  */
-public interface PieceInterface {
+public interface PieceInterface_21475657_TorresOrtiz {
     /**
      * Retorna color.
      *

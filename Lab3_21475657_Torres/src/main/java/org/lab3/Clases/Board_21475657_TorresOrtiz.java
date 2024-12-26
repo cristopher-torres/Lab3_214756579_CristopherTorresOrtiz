@@ -1,5 +1,5 @@
 package org.lab3.Clases;
-import org.lab3.Interfaces.BoardInterface;
+import org.lab3.Interfaces.BoardInterface_21475657_TorresOrtiz;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Cristopher Torres
  */
-public class Board implements BoardInterface {
+public class Board_21475657_TorresOrtiz implements BoardInterface_21475657_TorresOrtiz {
     /**
      * Atributo: board: Lista de listas de caracteres.
      */
@@ -30,7 +30,7 @@ public class Board implements BoardInterface {
      * Constructor: instancia una board.
      * Se crea la board sin parametros y el caracter '_' representa un espacio vacio.
      */
-    public Board() {
+    public Board_21475657_TorresOrtiz() {
         board = new ArrayList<>();
 
         for (int i = 0; i < filas; i++) {
@@ -65,7 +65,7 @@ public class Board implements BoardInterface {
      * @param piece:Piece
      */
     @Override
-    public void playPiece(int column, Piece piece){
+    public void playPiece(int column, Piece_21475657_TorresOrtiz piece){
         int newColumn = column - 1;
         if(column > 7 || column < 1){
             System.out.println("Columna fuera de rango");

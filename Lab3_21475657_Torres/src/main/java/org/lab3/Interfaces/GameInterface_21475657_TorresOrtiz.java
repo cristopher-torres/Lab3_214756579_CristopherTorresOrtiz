@@ -1,14 +1,13 @@
 package org.lab3.Interfaces;
 
-import org.lab3.Clases.Game;
-import org.lab3.Clases.Player;
+import org.lab3.Clases.Player_21475657_TorresOrtiz;
 
 import java.util.List;
 
 /**
  * Interfaz donde se mencionan los metodos a utilizar por la clase Game.
  */
-public interface GameInterface {
+public interface GameInterface_21475657_TorresOrtiz {
     /**
      * Metodo que genera un historial de movimientos
      *
@@ -30,7 +29,7 @@ public interface GameInterface {
      *
      * @return Player
      */
-    public Player getCurrentPlayer();
+    public Player_21475657_TorresOrtiz getCurrentPlayer();
     /**
      * Metodo que entrega por pantalla el estado actual del tablero en el juego.
      */
@@ -46,7 +45,7 @@ public interface GameInterface {
      * @param player:Player
      * @param column:int
      */
-    public void gamePlayerSetMove(Player player,int column);
+    public void gamePlayerSetMove(Player_21475657_TorresOrtiz player, int column);
 
     /**
      * Retorna la lista history.
@@ -72,12 +71,12 @@ public interface GameInterface {
      *
      * @return Player.
      */
-    public Player getPlayer1();
+    public Player_21475657_TorresOrtiz getPlayer1();
 
     /**
      * Retorna al player 2.
      *
      * @return Player.
      */
-    public Player getPlayer2();
+    public Player_21475657_TorresOrtiz getPlayer2();
 }

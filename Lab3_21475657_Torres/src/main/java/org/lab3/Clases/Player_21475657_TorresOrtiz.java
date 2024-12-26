@@ -1,38 +1,41 @@
 package org.lab3.Clases;
 
-import org.lab3.Interfaces.PlayerInterface;
+import org.lab3.Interfaces.PlayerInterface_21475657_TorresOrtiz;
 
 /**
  * Clase que representa un jugador en el juego.
  * Implementa la interfaz PlayerInterface.
  * @author Cristopher Torres
  */
-public class Player implements PlayerInterface {
+public class Player_21475657_TorresOrtiz implements PlayerInterface_21475657_TorresOrtiz {
     /**
      * Atributo: Id : Int.
      */
-    public int id;
-    public String name;
+    private int id;
+    /**
+     * Atributo: name : String.
+     */
+    private String name;
     /**
      * Atributo: Color : String.
      */
-    public String color;
+    private String color;
     /**
      * Atributo: Wins : Int.
      */
-    public int wins;
+    private int wins;
     /**
      * Atributo: Losses : Int.
      */
-    public int losses;
+    private int losses;
     /**
      * Atributo: Draws : Int.
      */
-    public int draws;
+    private int draws;
     /**
      * Atributo: RemainingPieces : Int.
      */
-    public int remainingPieces;
+    private int remainingPieces;
 
     /**
      * Constructor: instancia un player.
@@ -46,7 +49,7 @@ public class Player implements PlayerInterface {
      * @param remainingPieces:int
      *
      */
-    public Player(int id, String name, String color, int wins, int losses, int draws, int remainingPieces) {
+    public Player_21475657_TorresOrtiz(int id, String name, String color, int wins, int losses, int draws, int remainingPieces) {
         this.id = id;
         this.name = name;
         this.color = color;
@@ -127,28 +130,6 @@ public class Player implements PlayerInterface {
     }
 
     /**
-     * Metodo que actualiza las estadisticas (victorias,derrotas,empates) del jugador.
-     *
-     * @param result:String
-     * @return Player.
-     */
-    @Override
-    public Player updatedStats(String result) {
-        if (result.equals("Win")){
-            wins += 1;
-            return new Player(id, name, color, wins, losses, draws, remainingPieces);
-        }else if (result.equals("Loss")){
-            losses += 1;
-            return new Player(id, name, color, wins, losses, draws, remainingPieces);
-        } else if (result.equals("Draw")){
-            draws += 1;
-            return new Player(id, name, color, wins, losses, draws, remainingPieces);
-        }else{
-            return new Player(id, name, color, wins, losses, draws, remainingPieces);
-        }
-    }
-
-    /**
      * Cambia el numero de fichas de un jugador.
      *
      * @param remainingPieces:int
@@ -156,5 +137,27 @@ public class Player implements PlayerInterface {
     @Override
     public void setRemainingPieces(int remainingPieces) {
         this.remainingPieces = remainingPieces;
+    }
+
+    /**
+     * Metodo que actualiza las estadisticas (victorias,derrotas,empates) del jugador.
+     *
+     * @param result:String
+     * @return Player.
+     */
+    @Override
+    public Player_21475657_TorresOrtiz updatedStats(String result) {
+        if (result.equals("Win")){
+            wins += 1;
+            return new Player_21475657_TorresOrtiz(id, name, color, wins, losses, draws, remainingPieces);
+        }else if (result.equals("Loss")){
+            losses += 1;
+            return new Player_21475657_TorresOrtiz(id, name, color, wins, losses, draws, remainingPieces);
+        } else if (result.equals("Draw")){
+            draws += 1;
+            return new Player_21475657_TorresOrtiz(id, name, color, wins, losses, draws, remainingPieces);
+        }else{
+            return new Player_21475657_TorresOrtiz(id, name, color, wins, losses, draws, remainingPieces);
+        }
     }
 }

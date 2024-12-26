@@ -1,6 +1,6 @@
 package org.lab3.Clases;
 
-import org.lab3.Interfaces.PieceInterface;
+import org.lab3.Interfaces.PieceInterface_21475657_TorresOrtiz;
 
 /**
  * Clase que representa una ficha en el juego.
@@ -8,7 +8,7 @@ import org.lab3.Interfaces.PieceInterface;
  *
  * @author Cristopher Torres
  */
-public class Piece implements PieceInterface {
+public class Piece_21475657_TorresOrtiz implements PieceInterface_21475657_TorresOrtiz {
     /**
      * Atributo: Color : String.
      */
@@ -19,7 +19,7 @@ public class Piece implements PieceInterface {
      *
      * @param color:String
      */
-    public Piece(String color) {
+    public Piece_21475657_TorresOrtiz(String color) {
         this.color = color;
     }
 

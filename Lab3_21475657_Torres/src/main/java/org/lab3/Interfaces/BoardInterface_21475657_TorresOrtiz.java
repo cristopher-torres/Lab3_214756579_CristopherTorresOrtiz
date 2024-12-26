@@ -1,12 +1,11 @@
 package org.lab3.Interfaces;
 
-import org.lab3.Clases.Board;
-import org.lab3.Clases.Piece;
+import org.lab3.Clases.Piece_21475657_TorresOrtiz;
 
 /**
  * Interfaz donde se mencionan los metodos a utilizar por la Board.
  */
-public interface BoardInterface {
+public interface BoardInterface_21475657_TorresOrtiz {
 
     /**
      * Metodo que revisa si se puede realizar un movimiento en la board.
@@ -21,7 +20,7 @@ public interface BoardInterface {
      * @param column:int
      * @param piece:Piece
      */
-    public void playPiece(int column, Piece piece);
+    public void playPiece(int column, Piece_21475657_TorresOrtiz piece);
 
     /**
      * Metodo que verifica si hay cuatro fichas del mismo color consecutivas verticalmente.
