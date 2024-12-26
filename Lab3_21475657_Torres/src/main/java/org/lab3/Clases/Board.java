@@ -4,11 +4,32 @@ import org.lab3.Interfaces.BoardInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa el tablero del juego.
+ * Implementa la interfaz BoardInterface.
+ *
+ * @author Cristopher Torres
+ */
 public class Board implements BoardInterface {
+    /**
+     * Atributo: board: Lista de listas de caracteres.
+     */
     private List<List<Character>> board;
+    /**
+     * Atributo: filas : int.
+     * El valor siempre sera 6.
+     */
     private int filas = 6;
+    /**
+     * Atributo: columnas : int.
+     * El valor siempre sera 7.
+     */
     private int columnas = 7;
 
+    /**
+     * Constructor: instancia una board.
+     * Se crea la board sin parametros y el caracter '_' representa un espacio vacio.
+     */
     public Board() {
         board = new ArrayList<>();
 
@@ -20,6 +41,13 @@ public class Board implements BoardInterface {
             board.add(row);
         }
     }
+
+    /**
+     * Metodo que revisa si se puede realizar un movimiento en la board.
+     *
+     * @return boolean: - true si se puede realizar un movimiento.
+     *                  - false si no se puede realizar un movimiento.
+     */
     @Override
     public boolean canPlay(){
         for (int i = 0; i < columnas; i++) {
@@ -30,6 +58,12 @@ public class Board implements BoardInterface {
         }
         return false; // si no retorna false porque no se puede jugar
     }
+
+    /**
+     * Metodo que coloca una ficha en la board
+     * @param column:int
+     * @param piece:Piece
+     */
     @Override
     public void playPiece(int column, Piece piece){
         int newColumn = column - 1;
@@ -50,6 +84,13 @@ public class Board implements BoardInterface {
         }
         throw new IllegalStateException("La columna está llena.");
     }
+
+    /**
+     * Metodo que verifica si hay cuatro fichas del mismo color consecutivas verticalmente.
+     * @return int: - 0 si no hay ningun ganador.
+     *              - 1 si gano el jugador 1 (Piece = 'R').
+     *              - 2 si gano el jugador 2 (Piece = 'A').
+     */
     @Override
     public int checkVerticalWinner(){
         for (int col = 0; col < columnas; col++) {
@@ -73,6 +114,13 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+
+    /**
+     * Metodo que verifica si hay cuatro fichas del mismo color consecutivas horizontalmente.
+     * @return int: - 0 si no hay ningun ganador.
+     *              - 1 si gano el jugador 1 (Piece = 'R').
+     *              - 2 si gano el jugador 2 (Piece = 'A').
+     */
     @Override
     public int checkHorizontalWinner() {
         for (int row = 0; row < filas; row++) {
@@ -96,6 +144,13 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+
+    /**
+     * Metodo que verifica si hay cuatro fichas del mismo color consecutivas diagonalmente.
+     * @return int: - 0 si no hay ningun ganador.
+     *              - 1 si gano el jugador 1 (Piece = 'R').
+     *              - 2 si gano el jugador 2 (Piece = 'A').
+     */
     @Override
     public int checkDiagonalWinner() {
         for (int row = 0; row < filas; row++) {
@@ -130,6 +185,13 @@ public class Board implements BoardInterface {
         }
         return 0;
     }
+
+    /**
+     * Metodo que verifica si hay cuatro fichas del mismo color consecutivas de cualquier forma.
+     * @return int: - 0 si no hay ningun ganador.
+     *              - 1 si gano el jugador 1 (Piece = 'R').
+     *              - 2 si gano el jugador 2 (Piece = 'A').
+     */
     @Override
     public int whoIsWinner(){
         if (checkDiagonalWinner() == 1 || checkHorizontalWinner() == 1 || checkVerticalWinner() == 1) {
@@ -140,6 +202,9 @@ public class Board implements BoardInterface {
         return 0;
     }
 
+    /**
+     * Metodo que imprime el tablero.
+     */
     public void mostrarBoard() {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {

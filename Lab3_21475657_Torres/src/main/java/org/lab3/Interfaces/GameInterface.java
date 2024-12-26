@@ -3,11 +3,68 @@ package org.lab3.Interfaces;
 import org.lab3.Clases.Game;
 import org.lab3.Clases.Player;
 
+import java.util.List;
+
+/**
+ * Interfaz donde se mencionan los metodos a utilizar por la clase Game.
+ */
 public interface GameInterface {
+    /**
+     * Metodo que genera un historial de movimientos
+     *
+     * @param column:int
+     * @param color:String
+     */
     public void gameHistory(int column, String color);
+
+    /**
+     * Metodo que verifica si el juego es empate o no.
+     *
+     * @return boolean: - true si es empate
+     *                  - false si no es empate
+     */
     public boolean isDraw();
+
+    /**
+     * Metodo que obtiene el jugador cuyo turno esta en curso.
+     *
+     * @return Player
+     */
     public Player getCurrentPlayer();
+    /**
+     * Metodo que entrega por pantalla el estado actual del tablero en el juego.
+     */
     public void boardGetState();
+    /**
+     * Metodo que finaliza el juego actualizando las estadísticas de los jugadores según el resultado
+     * y no permitiendo futuras jugadas.
+     */
     public void gameEnd();
+    /**
+     * Método que permite a un jugador realizar un movimiento.
+     *
+     * @param player:Player
+     * @param column:int
+     */
     public void gamePlayerSetMove(Player player,int column);
+
+    /**
+     * Retorna la lista history.
+     * @return history:Una lista de string con pares (int column, string color).
+     */
+    public List<String> getHistory();
+
+    /**
+     * Cambia el currentTurn del game.
+     *
+     * @param currentTurn:int
+     */
+    public void setCurrentTurn(int currentTurn);
+
+    /**
+     * Retorna currentTurn.
+     * @return currentTurn:int.
+     */
+    public int getCurrentTurn();
+
 }
