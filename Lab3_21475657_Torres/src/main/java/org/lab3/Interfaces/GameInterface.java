@@ -67,4 +67,17 @@ public interface GameInterface {
      */
     public int getCurrentTurn();
 
+    /**
+     * Retorna al Player 1.
+     *
+     * @return Player.
+     */
+    public Player getPlayer1();
+
+    /**
+     * Retorna al player 2.
+     *
+     * @return Player.
+     */
+    public Player getPlayer2();
 }

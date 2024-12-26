@@ -81,6 +81,7 @@ public class Game implements GameInterface {
      *
      * @return Player.
      */
+    @Override
     public Player getPlayer1() {
         return players.get(0);
     }
@@ -90,6 +91,7 @@ public class Game implements GameInterface {
      *
      * @return Player.
      */
+    @Override
     public Player getPlayer2() {
         return players.get(1);
     }
