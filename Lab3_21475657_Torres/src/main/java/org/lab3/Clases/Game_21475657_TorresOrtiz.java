@@ -102,15 +102,25 @@ public class Game_21475657_TorresOrtiz implements GameInterface_21475657_TorresO
     }
 
     /**
-     * Metodo que genera un historial de movimientos
+     * Metodo que agrega un movimiento al historial de movimientos
      *
      * @param column:int
      * @param color:String
      */
-    @Override
-    public void gameHistory(int column, String color){
+
+    public void addGameHistory(int column, String color){
         String newMove = "("+column+","+color+")";
         history.add(newMove);
+    }
+    /**
+     * Metodo que genera un historial de movimientos
+     *
+     */
+    @Override
+    public void gameHistory(){
+        for (String move : history) {
+            System.out.println(move);
+        }
     }
 
     /**
@@ -163,20 +173,20 @@ public class Game_21475657_TorresOrtiz implements GameInterface_21475657_TorresO
      * y no permitiendo futuras jugadas.
      */
     @Override
-    public void gameEnd(){
+    public void endGame(){
         Player_21475657_TorresOrtiz player1 = getPlayer1();
         Player_21475657_TorresOrtiz player2 = getPlayer2();
         Board_21475657_TorresOrtiz currentBoard = getBoard();
 
         if(currentBoard.whoIsWinner() == 1){
-            player1 = player1.updatedStats("Win");
-            player2 = player2.updatedStats("Loss");
+            player1 = player1.updateStats("Win");
+            player2 = player2.updateStats("Loss");
         } else if (currentBoard.whoIsWinner() == 2) {
-            player1 = player1.updatedStats("Loss");
-            player2 = player2.updatedStats("Win");
+            player1 = player1.updateStats("Loss");
+            player2 = player2.updateStats("Win");
         } else if (isDraw()) {
-            player1 = player1.updatedStats("Draw");
-            player2 = player2.updatedStats("Draw");
+            player1 = player1.updateStats("Draw");
+            player2 = player2.updateStats("Draw");
         }
         players.set(0, player1);
         players.set(1, player2);
@@ -198,11 +208,11 @@ public class Game_21475657_TorresOrtiz implements GameInterface_21475657_TorresO
             getBoard().playPiece(column, piece);
             int newRemainingPieces = player.getRemainingPieces() - 1;
             player.setRemainingPieces(newRemainingPieces);
-            gameHistory(column, player.getColor());
+            addGameHistory(column, player.getColor());
             int newCurrentTurn = currentTurn + 1;
             setCurrentTurn(newCurrentTurn);
             if (getBoard().whoIsWinner() != 0 || isDraw()) {
-                gameEnd();
+                endGame();
             }
         }else{
             System.out.println("El jugador no tiene fichas disponibles");

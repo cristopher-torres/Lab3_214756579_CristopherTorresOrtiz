@@ -11,10 +11,8 @@ public interface GameInterface_21475657_TorresOrtiz {
     /**
      * Metodo que genera un historial de movimientos
      *
-     * @param column:int
-     * @param color:String
      */
-    public void gameHistory(int column, String color);
+    public void gameHistory();
 
     /**
      * Metodo que verifica si el juego es empate o no.
@@ -38,7 +36,7 @@ public interface GameInterface_21475657_TorresOrtiz {
      * Metodo que finaliza el juego actualizando las estadísticas de los jugadores según el resultado
      * y no permitiendo futuras jugadas.
      */
-    public void gameEnd();
+    public void endGame();
     /**
      * Método que permite a un jugador realizar un movimiento.
      *

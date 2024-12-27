@@ -109,6 +109,9 @@ public class Board_21475657_TorresOrtiz implements BoardInterface_21475657_Torre
                     if (accY == 4){
                         return 2;
                     }
+                }else{
+                    accR = 0;
+                    accY = 0;
                 }
             }
         }
@@ -139,6 +142,9 @@ public class Board_21475657_TorresOrtiz implements BoardInterface_21475657_Torre
                     if (accY == 4) {
                         return 2;
                     }
+                }else{
+                    accR = 0;
+                    accY = 0;
                 }
             }
         }

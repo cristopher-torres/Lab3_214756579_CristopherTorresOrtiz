@@ -59,5 +59,5 @@ public interface PlayerInterface_21475657_TorresOrtiz {
      * @param result:String
      * @return Player.
      */
-    public Player_21475657_TorresOrtiz updatedStats(String result);
+    public Player_21475657_TorresOrtiz updateStats(String result);
 }

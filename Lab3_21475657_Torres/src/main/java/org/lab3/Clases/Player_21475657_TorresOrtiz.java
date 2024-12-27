@@ -146,7 +146,7 @@ public class Player_21475657_TorresOrtiz implements PlayerInterface_21475657_Tor
      * @return Player.
      */
     @Override
-    public Player_21475657_TorresOrtiz updatedStats(String result) {
+    public Player_21475657_TorresOrtiz updateStats(String result) {
         if (result.equals("Win")){
             wins += 1;
             return new Player_21475657_TorresOrtiz(id, name, color, wins, losses, draws, remainingPieces);

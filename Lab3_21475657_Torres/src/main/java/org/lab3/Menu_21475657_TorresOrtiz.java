@@ -58,115 +58,119 @@ public class Menu_21475657_TorresOrtiz {
             System.out.println("4. Ver Historial de movimientos final de la ultima partida");
             System.out.println("5. Salir del juego");
             System.out.println("Ingrese una opcion y presione ENTER para continuar: \n");
-            option = scanner.nextInt();
-            switch(option){
-                case 1:
-                    players.clear();
-                    System.out.println("\n==== Creando partida ====\n");
-                    System.out.println("ingrese nombre jugador 1:");
-                    scanner.nextLine();
-                    String namePlayer1 = scanner.nextLine();
-                    System.out.println("Color asignado a " + namePlayer1 + " (jugador 1): Rojo");
-                    System.out.println("ingrese nombre jugador 2:");
-                    String namePlayer2 = scanner.nextLine();
-                    System.out.println("Color asignado a " + namePlayer2 + " (jugador 2): Amarrillo");
-                    boolean correctCantPieces = false;
-                    while (!correctCantPieces) {
-                        System.out.println("ingrese la cantidad de fichas para cada jugador (De 4-21): ");
-                        cantRemainingPieces = scanner.nextInt();
-                        if (cantRemainingPieces >= 4 && cantRemainingPieces <= 21) {
-                            correctCantPieces = true;
-                        } else {
-                            System.out.println("Numero de fichas incorrectas, la cantidad de fichas debe estar entre 4 y 21. Intente nuevamente.");
+            try {
+                option = scanner.nextInt();
+                switch (option) {
+                    case 1:
+                        players.clear(); //Se limpian los jugadores por si elige no volver a jugar otra partida, pero crea otra en el menu principal
+                        System.out.println("\n==== Creando partida ====\n");
+                        System.out.println("ingrese nombre jugador 1:");
+                        scanner.nextLine();
+                        String namePlayer1 = scanner.nextLine();
+                        System.out.println("Color asignado a " + namePlayer1 + " (jugador 1): Rojo");
+                        System.out.println("ingrese nombre jugador 2:");
+                        String namePlayer2 = scanner.nextLine();
+                        System.out.println("Color asignado a " + namePlayer2 + " (jugador 2): Amarrillo");
+                        boolean correctCantPieces = false;
+                        while (!correctCantPieces) {
+                            System.out.println("ingrese la cantidad de fichas para cada jugador (De 4-21): ");
+                            cantRemainingPieces = scanner.nextInt();
+                            if (cantRemainingPieces >= 4 && cantRemainingPieces <= 21) {
+                                correctCantPieces = true;
+                            } else {
+                                System.out.println("Numero de fichas incorrectas, la cantidad de fichas debe estar entre 4 y 21. Intente nuevamente.");
+                            }
                         }
-                    }
-                    scanner.nextLine();
-                    Player_21475657_TorresOrtiz player1 = new Player_21475657_TorresOrtiz(1, namePlayer1, "Rojo", 0, 0, 0, cantRemainingPieces);
-                    Player_21475657_TorresOrtiz player2 = new Player_21475657_TorresOrtiz(2, namePlayer2, "Amarillo", 0, 0, 0, cantRemainingPieces);
-                    players.add(player1);
-                    players.add(player2);
+                        scanner.nextLine();
+                        Player_21475657_TorresOrtiz player1 = new Player_21475657_TorresOrtiz(1, namePlayer1, "Rojo", 0, 0, 0, cantRemainingPieces);
+                        Player_21475657_TorresOrtiz player2 = new Player_21475657_TorresOrtiz(2, namePlayer2, "Amarillo", 0, 0, 0, cantRemainingPieces);
+                        players.add(player1);
+                        players.add(player2);
 
-                    System.out.println("Jugadores creados de la partida:");
-                    for (Player_21475657_TorresOrtiz player : players) {
-                        System.out.println("Jugador (Id) = " + player.getId());
-                        System.out.println("Nombre = " + player.getName());
-                        System.out.println("Color = " + player.getColor() );
-                        System.out.println("Partidas Ganadas = " + player.getWins());
-                        System.out.println("Partidas Perdidas = " + player.getLosses());
-                        System.out.println("Partidas empatadas = " + player.getDraws());
-                        System.out.println("Fichas = " + player.getRemainingPieces());
-                        System.out.println("\n");
-
-                    }
-                    for (Player_21475657_TorresOrtiz player : players) {
-                        player.setRemainingPieces(cantRemainingPieces);
-                    }
-                    board = new Board_21475657_TorresOrtiz();
-                    game = new Game_21475657_TorresOrtiz(players,board,1);
-                    menuGame();
-                    break;
-                case 2:
-                    System.out.println("==== Estadisticas de los jugadores ====\n");
-                    if (players.isEmpty()) {
-                        System.out.println("No hay estadisticas de los jugadores,debido a que no se han jugado partidas");
-                    }
-                    for (Player_21475657_TorresOrtiz player : players) {
-                        System.out.println(player.getName() + " (" + player.getColor()+ ")");
-                        System.out.println("Partidas Ganadas = " + player.getWins());
-                        System.out.println("Partidas Perdidas = " + player.getLosses());
-                        System.out.println("Partidas empatadas = " + player.getDraws());
-                        System.out.println("\n");
-                    }
-                    break;
-                case 3:
-                    System.out.println("\n==== Estado final del tablero en la ultima partida ====\n");
-                    if (game == null) {
-                        System.out.println("Aun no se han jugado partidas");
-                    } else {
-                        System.out.println("Estado final del tablero:");
-                        game.boardGetState();
-                        if (game.getBoard().whoIsWinner() == 1){
+                        System.out.println("Jugadores creados de la partida:");
+                        for (Player_21475657_TorresOrtiz player : players) {
+                            System.out.println("Jugador (Id) = " + player.getId());
+                            System.out.println("Nombre = " + player.getName());
+                            System.out.println("Color = " + player.getColor());
+                            System.out.println("Partidas Ganadas = " + player.getWins());
+                            System.out.println("Partidas Perdidas = " + player.getLosses());
+                            System.out.println("Partidas empatadas = " + player.getDraws());
+                            System.out.println("Fichas = " + player.getRemainingPieces());
                             System.out.println("\n");
-                            System.out.println("El ganador de la ultima partida fue " + game.getPlayer1().getName());
-                        } else if (game.getBoard().whoIsWinner() == 2) {
-                            System.out.println("El ganador de la ultima partida fue " + game.getPlayer2().getName());
-                        } else if (game.isDraw()) {
-                            System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
-                                    + game.getPlayer2().getName() + " termino en empate");
-                        }else{
-                            System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
-                                    + game.getPlayer2().getName() + " no se termino de jugar");
-                        }
-                    }
 
-                    break;
-                case 4:
-                    System.out.println("\n==== Historial de movimientos final de la ultima partida ====\n");
-                    if(game == null) {
-                        System.out.println("Aun no se han jugado partidas");
-                    }else {
-                        for (String move : game.getHistory()) {
-                            System.out.println(move);
                         }
-                        if (game.getBoard().whoIsWinner() == 1){
-                            System.out.println("El ganador de la ultima partida fue " + game.getPlayer1().getName());
-                        } else if (game.getBoard().whoIsWinner() == 2) {
-                            System.out.println("El ganador de la ultima partida fue " + game.getPlayer2().getName());
-                        }else if (game.isDraw()) {
-                            System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
-                                    + game.getPlayer2().getName() + " termino en empate");
-                        }else{
-                            System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
-                                    + game.getPlayer2().getName() + " no se termino de jugar");
+                        // Esto se hace por si el usuario elige jugar otra partida con los mismos player
+                        for (Player_21475657_TorresOrtiz player : players) {
+                            player.setRemainingPieces(cantRemainingPieces);
                         }
-                    }
-                    break;
-                case 5:
-                    System.out.println("Gracias por jugar conecta 4");
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-                    scanner.nextLine();
+                        board = new Board_21475657_TorresOrtiz();
+                        game = new Game_21475657_TorresOrtiz(players, board, 1);
+                        menuGame();
+                        break;
+                    case 2:
+                        System.out.println("==== Estadisticas de los jugadores ====\n");
+                        if (players.isEmpty()) {
+                            System.out.println("No hay estadisticas de los jugadores,debido a que no se han jugado partidas");
+                        }
+                        for (Player_21475657_TorresOrtiz player : players) {
+                            System.out.println(player.getName() + " (" + player.getColor() + ")");
+                            System.out.println("Partidas Ganadas = " + player.getWins());
+                            System.out.println("Partidas Perdidas = " + player.getLosses());
+                            System.out.println("Partidas empatadas = " + player.getDraws());
+                            System.out.println("\n");
+                        }
+                        break;
+                    case 3:
+                        System.out.println("\n==== Estado final del tablero en la ultima partida ====\n");
+                        if (game == null) {
+                            System.out.println("Aun no se han jugado partidas");
+                        } else {
+                            System.out.println("Estado final del tablero:");
+                            game.boardGetState();
+                            if (game.getBoard().whoIsWinner() == 1) {
+                                System.out.println("\n");
+                                System.out.println("El ganador de la ultima partida fue " + game.getPlayer1().getName());
+                            } else if (game.getBoard().whoIsWinner() == 2) {
+                                System.out.println("El ganador de la ultima partida fue " + game.getPlayer2().getName());
+                            } else if (game.isDraw()) {
+                                System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
+                                        + game.getPlayer2().getName() + " termino en empate");
+                            } else {
+                                System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
+                                        + game.getPlayer2().getName() + " no se termino de jugar");
+                            }
+                        }
+
+                        break;
+                    case 4:
+                        System.out.println("\n==== Historial de movimientos final de la ultima partida ====\n");
+                        if (game == null) {
+                            System.out.println("Aun no se han jugado partidas");
+                        } else {
+                            game.gameHistory();
+                            if (game.getBoard().whoIsWinner() == 1) {
+                                System.out.println("El ganador de la ultima partida fue " + game.getPlayer1().getName());
+                            } else if (game.getBoard().whoIsWinner() == 2) {
+                                System.out.println("El ganador de la ultima partida fue " + game.getPlayer2().getName());
+                            } else if (game.isDraw()) {
+                                System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
+                                        + game.getPlayer2().getName() + " termino en empate");
+                            } else {
+                                System.out.println("La ultima partida entre " + game.getPlayer1().getName() + " y "
+                                        + game.getPlayer2().getName() + " no se termino de jugar");
+                            }
+                        }
+                        break;
+                    case 5:
+                        System.out.println("Gracias por jugar conecta 4");
+                        break;
+                    default:
+                        System.out.println("Opcion no valida");
+                        scanner.nextLine();
+                }
+            }catch (Exception e) {
+                System.out.println("Debe ingresar una numero del 1 al 5");
+                scanner.nextLine();
             }
         }while(option != 5);
 
@@ -180,7 +184,7 @@ public class Menu_21475657_TorresOrtiz {
             if(returnToMenu) {
                 return;
             }
-            System.out.println("------------------- Menu de partida -------------------\n");
+            System.out.println("\n------------------- Menu de partida -------------------\n");
             System.out.println("Elija una opcion: ");
             System.out.println("1. Realizar movimiento");
             System.out.println("2. Ver historial de movimientos de la partida");
@@ -188,37 +192,40 @@ public class Menu_21475657_TorresOrtiz {
             System.out.println("4. Ver estado actual del tablero");
             System.out.println("5. Salir de la partida y volver al menu principal");
             System.out.println("Ingrese una opcion y presione ENTER para continuar: \n");
-            option = scanner.nextInt();
-            switch(option){
-                case 1:
-                    playGame();
-                    break;
-                case 2:
-                    System.out.println("\n==== Historial de movimientos de la partida ====\n");
-                    if(game.getHistory().isEmpty()) {
-                        System.out.println("Aun no se realiza ningun movimiento en la partida");
-                    }else {
-                        for (String move : game.getHistory()) {
-                            System.out.println(move);
+            try {
+                option = scanner.nextInt();
+                switch (option) {
+                    case 1:
+                        playGame();
+                        break;
+                    case 2:
+                        System.out.println("\n==== Historial de movimientos de la partida ====\n");
+                        if (game.getHistory().isEmpty()) {
+                            System.out.println("Aun no se realiza ningun movimiento en la partida");
+                        } else {
+                            game.gameHistory();
                         }
-                    }
-                    break;
-                case 3:
-                    if(game.getBoard().canPlay()){
-                        System.out.println("Si se puede jugar en el tablero actual");
-                    }else{
-                        System.out.println("No se puede jugar en el tablero actual");
-                    }
-                    break;
-                case 4:
-                    System.out.println("\n==== Estado actual del tablero ====\n");
-                    game.boardGetState();
-                    break;
-                case 5:
-                    return;
-                default:
-                    System.out.println("Opcion no valida");
-                    scanner.nextLine();
+                        break;
+                    case 3:
+                        if (game.getBoard().canPlay()) {
+                            System.out.println("Si se puede jugar en el tablero actual");
+                        } else {
+                            System.out.println("No se puede jugar en el tablero actual");
+                        }
+                        break;
+                    case 4:
+                        System.out.println("\n==== Estado actual del tablero ====\n");
+                        game.boardGetState();
+                        break;
+                    case 5:
+                        return;
+                    default:
+                        System.out.println("Opcion no valida");
+                        scanner.nextLine();
+                }
+            }catch (Exception e) {
+                System.out.println("Debe ingresar una numero del 1 al 5");
+                scanner.nextLine();
             }
         }while(option != 5 && !returnToMenu);
     }
@@ -317,25 +324,35 @@ public class Menu_21475657_TorresOrtiz {
                 System.out.println("Columna fuera del rango, ingrese un numero del 1 al 7");
                 scanner.nextLine();
             }
-            if (!endgame) {
+            if (!endgame) { // Al terminar de realizar una jugada se redirige al menu de partida
                 return;
             }
         }
-        System.out.print("\nDesea jugar otra partida? (S/N): ");
-        String playAgain = scanner.nextLine().toUpperCase();
-        if(playAgain.equals("S")){
-            for (Player_21475657_TorresOrtiz player : players) {
-                player.setRemainingPieces(cantRemainingPieces);
+        try {
+            Boolean exitOrContiue = false;
+            while (!exitOrContiue) {
+                System.out.print("\nDesea jugar otra partida? (S/N): ");
+                String playAgain = scanner.nextLine().toUpperCase();
+                if (playAgain.equals("S")) {
+                    for (Player_21475657_TorresOrtiz player : players) {
+                        player.setRemainingPieces(cantRemainingPieces);  //se le reasignan las fichas a los player
+                    }
+                    board = new Board_21475657_TorresOrtiz();
+                    game = new Game_21475657_TorresOrtiz(players, board, 1);
+                    exitOrContiue = true;
+                    menuGame();
+                } else if (playAgain.equals("N")) {
+                    System.out.print("\nSe le devolvera al menu principal de conecta 4\n");
+                    returnToMenu = true;
+                    exitOrContiue = true;
+                    return;
+                } else {
+                    System.out.print("\nDebe ingresar S o N");
+                }
             }
-            board = new Board_21475657_TorresOrtiz();
-            game = new Game_21475657_TorresOrtiz(players,board,1);
-            menuGame();
-        } else if (playAgain.equals("N")) {
-            System.out.print("\nSe le devolvera al menu principal de conecta 4 ");
-            returnToMenu = true;
-            return;
-        } else{
-            System.out.print("Caracter invalido, ingrese S o N");
+        }catch (Exception e) {
+            System.out.println("Debe ingresar S o N");
+            scanner.nextLine();
         }
     }
 }
